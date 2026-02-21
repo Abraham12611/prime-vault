@@ -2,13 +2,17 @@ const { ethers } = require("hardhat");
 const fs = require("fs");
 const path = require("path");
 
-// Arbitrum Sepolia addresses (update with real addresses when available)
+// Arbitrum Sepolia addresses (from safe-deployments v1.4.1)
+// Chain ID: 421614
+// Source: https://github.com/safe-global/safe-deployments
 const ARBITRUM_SEPOLIA = {
-  SAFE_SINGLETON: "0x...", // Safe singleton address
-  SAFE_PROXY_FACTORY: "0x...", // Safe proxy factory
-  FALLBACK_HANDLER: "0x...", // CompatibilityFallbackHandler
-  CHAINLINK_ETH_USD: "0xd30e2101a97dcbAeBCBC04F14C3f624E67A87965", // ETH/USD price feed
-  CHAINLINK_USDC_USD: "0x...", // USDC/USD price feed
+  SAFE_SINGLETON: "0x41675C099F32341bf84BFc5382aF534df5C7461a", // Safe master copy
+  SAFE_PROXY_FACTORY: "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", // Creates Safes
+  FALLBACK_HANDLER: "0xfd0732Dc9E303f09fCEf3a7388Ad10A83459Ec99", // ERC-721/1155 support
+  MULTI_SEND: "0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526", // Batch txs
+  MULTI_SEND_CALL_ONLY: "0x9641d764fc13c8B624c04430C7356C1C7C8102e2", // Safe batch
+  CHAINLINK_ETH_USD: "0xd30e2101a97dcbAeBCBC04F14C3f624E67A87965", // ETH/USD
+  CHAINLINK_USDC_USD: "0x...", // USDC/USD - needs to be found
 };
 
 async function main() {
